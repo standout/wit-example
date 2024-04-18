@@ -1,0 +1,18 @@
+package app:fortnox@0.0.1;
+
+interface host {
+  resource context {
+    get-storage: func(key: string) -> string;
+    set-storage: func(key: string, value: string);
+    get-input: func() -> result<string, string>;
+    get-connection: func() -> result<string, string>;
+  }
+}
+
+world main {
+  use host.{context};
+
+  import host;
+
+  export test: func(context: context) -> string;
+}
